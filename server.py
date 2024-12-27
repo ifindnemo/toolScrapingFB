@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 from selenium import webdriver
-import pickle
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,6 +8,7 @@ from selenium.webdriver.chrome.options import Options
 import os
 from flask_cors import CORS
 from pymongo import MongoClient
+import subprocess
 
 app = Flask(__name__)
 CORS(app)
