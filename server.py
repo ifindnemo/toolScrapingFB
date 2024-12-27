@@ -37,10 +37,10 @@ def check_password():
 
 @app.route("/crawl", methods=["POST"])
 def crawl():
-    request_url = data.get("group_url")
-    num_of_post = data.get("num_of_post")
-    typeCrawl = data.get("type_crawl")
-    date_time = data.get("date_time")
+    request_url = request.form.get('group_url')
+    num_of_post = int(request.form.get('num_of_post'))
+    typeCrawl = request.form.get('type_crawl')
+    date_time = request.form.get('date_time')
 
     # Khởi chạy worker.py với các tham số
     result = subprocess.run(
