@@ -5,4 +5,3 @@ gunicorn
 flask
 flask-cors
 pymongo
-python-dotenv
