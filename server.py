@@ -450,13 +450,13 @@ def crawl():
         driver.get("https://www.facebook.com/")
         sleep(5)
 
-        # 3️⃣ Tải cookie từ file 'cookies.pkl' và thêm vào trình duyệt
-        with open('D:/Code/KPW/CK/cookies.pkl', 'rb') as file:
-            cookies = pickle.load(file)
-
+        # 3️⃣ Tải cookie từ MongoDB và thêm vào trình duyệt
+        cookies_collection = db['cookies']
+        cookies = cookies_collection.find()
+        
         for cookie in cookies:
             driver.add_cookie(cookie)
-
+        
         # 4️⃣ Tải lại trang Facebook để xác thực bằng cookie
         driver.refresh()
         sleep(5)
