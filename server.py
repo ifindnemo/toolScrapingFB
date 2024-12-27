@@ -14,7 +14,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/*": {"origins": "*"}})#
+cors = CORS(app)
 
 PASSWORD_SECRET = os.getenv("PASSWORD_SECRET")
 
