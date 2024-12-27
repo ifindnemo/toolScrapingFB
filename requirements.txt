@@ -6,3 +6,4 @@ flask
 flask-cors
 pymongo
 celery
+redis
