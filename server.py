@@ -418,8 +418,9 @@ def crawl():
             resultCrawl = fanpageCrawl(request_url, num_of_post, driver, date_time)
         else:
             resultCrawl = []
-        
-        db['Crawl'].insert_many(resultCrawl)
+            
+        collection_name = f"{typeCrawl}Scraping"
+        db[collection_name].insert_many(resultCrawl)
         
         # Xóa '_id'
         for document in resultCrawl:
