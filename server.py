@@ -455,6 +455,7 @@ def crawl():
         cookies = cookies_collection.find()
         
         for cookie in cookies:
+            cookie.pop('_id', None)
             driver.add_cookie(cookie)
         
         # 4️⃣ Tải lại trang Facebook để xác thực bằng cookie
