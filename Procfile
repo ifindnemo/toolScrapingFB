@@ -1,2 +1,2 @@
 web: gunicorn server:app --timeout 30
-celery: celery -A celeryapp
+celery -A celeryapp worker
