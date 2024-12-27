@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.options import Options
 import os
 from flask_cors import CORS
 from pymongo import MongoClient
+from celeryapp import perform_crawl
 
 app = Flask(__name__)
 CORS(app)
