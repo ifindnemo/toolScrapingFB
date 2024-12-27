@@ -25,7 +25,7 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
     driver.get(f'{request_url}')
     sleep(1)
 
-    wait = WebDriverWait(driver, 5)
+    wait = WebDriverWait(driver, 2)
     idx=1
     maxidx = num_of_post + 1
     
@@ -94,7 +94,7 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
                 buttons = div.find_element(By.CSS_SELECTOR, 'div[class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x2lah0s x193iq5w xeuugli xsyo7zv x16hj40l x10b6aqq x1yrsyyn"] div[role="button"]')           
                 
                 buttons.click()
-                sleep(5)
+                sleep(2)
                 
                 name_elements = driver.find_element(By.CSS_SELECTOR, "div.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x78zum5.xdt5ytf.x1iyjqo2.x1al4vs7 div.html-div.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1gslohp")
                 # Lấy nội dung văn bản
@@ -106,7 +106,7 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
                     new_len = len(name_elements1)
                     if new_len == first_len:
                         break
-                sleep(5)
+                sleep(2)
 
                 
                 #______________________________________nhấn vào thêm phản hồi______________________________________
@@ -124,7 +124,7 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
                 except:
                     pass
 
-                sleep(5)
+                sleep(1)
 
                 name_elements2 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label^="Phản hồi bình luận"] div[style="text-align: start;"]')
                 name_elements3 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label*="đáp lại phản hồi"] div[style="text-align: start;"]')
@@ -135,7 +135,7 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
                     name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label*="đáp lại phản hồi"] div[style="text-align: start;"]')
                 )   
                 print(len(name_elements))             
-                sleep(5)
+                sleep(1)
 
                 #__________________________________________LẤY BÌNH LUẬN____________________________________________
                             
@@ -160,7 +160,7 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
                 like_buttons[0].click()
             except:
                 pass
-            sleep(3)
+            sleep(1)
             divs = driver.find_elements(By.CSS_SELECTOR, '.html-div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x6s0dn4.x78zum5.x2lah0s.x1qughib.x879a55.x1n2onr6')
 
 
@@ -256,7 +256,7 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
                 buttons = div.find_element(By.CSS_SELECTOR, 'div[class="x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x2lah0s x193iq5w xeuugli xsyo7zv x16hj40l x10b6aqq x1yrsyyn"] div[role="button"]')           
                 
                 buttons.click()
-                sleep(5)
+                sleep(2)
                 
                 name_elements = driver.find_element(By.CSS_SELECTOR, "div.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x78zum5.xdt5ytf.x1iyjqo2.x1al4vs7 div.html-div.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1gslohp")
                 # Lấy nội dung văn bản
@@ -268,7 +268,7 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
                     new_len = len(name_elements1)
                     if new_len == first_len:
                         break
-                sleep(5)
+                sleep(1)
 
                 
                 #______________________________________nhấn vào thêm phản hồi______________________________________
@@ -285,7 +285,7 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
                 except:
                     pass
 
-                sleep(5)
+                sleep(2)
 
                 name_elements2 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label^="Phản hồi bình luận"] div[style="text-align: start;"]')
                 name_elements3 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label*="đáp lại phản hồi"] div[style="text-align: start;"]')
@@ -296,7 +296,7 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
                     name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label*="đáp lại phản hồi"] div[style="text-align: start;"]')
                 )   
                 print(len(name_elements))             
-                sleep(5)
+                sleep(1)
 
                     
                 
@@ -326,7 +326,7 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
                 like_buttons[0].click()
             except:
                 pass
-            sleep(3)
+            sleep(1)
             divs = driver.find_elements(By.CSS_SELECTOR, '.html-div.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x6s0dn4.x78zum5.x2lah0s.x1qughib.x879a55.x1n2onr6')
 
 
