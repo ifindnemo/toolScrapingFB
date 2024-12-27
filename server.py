@@ -9,7 +9,6 @@ from selenium.webdriver.chrome.options import Options
 import os
 from flask_cors import CORS
 from pymongo import MongoClient
-load_dotenv()
 
 app = Flask(__name__)
 
