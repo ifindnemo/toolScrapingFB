@@ -21,10 +21,6 @@ db = client['KPW']
 
 resultCrawl = []
 
-@app.route("/")
-def index():
-    return "Hello, world!"
-
 @app.route("/check-password", methods=["POST"])
 def check_password():
     # Lấy dữ liệu từ yêu cầu JSON
