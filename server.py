@@ -21,18 +21,6 @@ db = client['KPW']
 
 resultCrawl = []
 
-@app.route("/check-password", methods=["POST"])
-def check_password():
-    # Lấy dữ liệu từ yêu cầu JSON
-    data = request.get_json()
-    password = data.get("password")
-
-    # Kiểm tra mật khẩu
-    if password == PASSWORD_SECRET:
-        return jsonify(success=True, message="Đúng mật khẩu!")
-    else:
-        return jsonify(success=False, message="Sai mật khẩu!"), 401
-
 @app.route("/")
 def index():
     return "Hello, world!"
