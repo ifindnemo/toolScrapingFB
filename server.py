@@ -439,6 +439,7 @@ def crawl():
     chrome_options.add_argument("--disable-software-rasterizer")  # Tắt rasterizer phần mềm
     chrome_options.add_argument("--log-level=3")  # Tắt các cảnh báo không cần thiết
     chrome_options.add_argument("--silent")  # Tắt các cảnh báo không cần thiết
+    chrome_options.add_argument("--remote-debugging-port=9222")
 
     # Khởi tạo trình duyệt Chrome
     driver = webdriver.Chrome(options=chrome_options)
