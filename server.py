@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 cors = CORS(app)
 
-PASSWORD_SECRET = os.environ("PASSWORD_SECRET")
+PASSWORD_SECRET = os.environ["PASSWORD_SECRET"]
 
 MONGO_URI = os.environ['MONGODB']
 client = MongoClient(MONGO_URI)
