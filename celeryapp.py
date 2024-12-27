@@ -14,7 +14,7 @@ import os
 celeryapp = Flask(__name__)
 
 # Cấu hình Celery
-redis_url = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
+redis_url = os.environ['REDISCLOUD_URL']
 celeryapp.config['CELERY_BROKER_URL'] = redis_url  # Đặt broker là Redis
 celeryapp.config['CELERY_RESULT_BACKEND'] = redis_url  # Đặt backend là Redis
 celery = Celery(celeryapp.name, broker=celeryapp.config['CELERY_BROKER_URL'])
