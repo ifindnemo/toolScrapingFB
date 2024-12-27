@@ -41,17 +41,12 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
             if dem < idx:
                 dem += 1
                 continue #tránh thu thập dữ liệu bị trùng lặp ở mỗi vòng lặp
-            print(f"{a}"*200)
-            print(div.text)
-            
             driver.execute_script("arguments[0].scrollIntoView(true);", div)    
             #-------------------------------------------------------------------TEXT----------------------------------------------------------------------
             #tìm text
-            print(f'BÀI VIẾT{a}','-'*50)
             text_content = ''
             try:
                 XemThem = div.find_elements(By.CSS_SELECTOR, 'div[class="x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1sur9pj xkrqix3 xzsf02u x1s688f"]')                          
-                [print(i.text) for i in XemThem ]
                 for i in XemThem:
                     if i.text =='Xem thêm':
                         i.click()
@@ -60,22 +55,18 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
 
             try:
                 text = div.find_element(By.CSS_SELECTOR, 'div.x11i5rnm.xat24cr.x1mh8g0r.x1vvkbs.xtlvy1s.x126k92a')
-                print(a,'\n','text:\n',text.text,'\n' )
                 
             except:
                 try:
                     text = div.find_element(By.CSS_SELECTOR, 'div[class="x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x10l6tqk x17qophe x13vifvy xh8yej3"]')
-                    print(a,'\n','text:\n',text.text,'\n' )  
                 except:
                     try:
                         text = div.find_element(By.CSS_SELECTOR, 'div[class="xdj266r x11i5rnm xat24cr x1mh8g0r x1vvkbs x126k92a"]')
-                        print(a,'\n','text:\n',text.text,'\n' )  
                     except:
                         print('Không có tìm thầy text')  
             text_content = text.text
             
             #-------------------------------------------------------------------COMMENT AND SHARE----------------------------------------------------------------------
-            print('NUMBER OF COMMENT AND SHARE','-'*50)
             comment_num = ''
             share_num = ''
             #tìm số comment và share
@@ -96,7 +87,6 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
                     print('share:\n',i.text,'\n' )
                     share_num = i.text
             #------------------------------------------------------------------COMMENT----------------------------------------------------------------------
-            print(f'COMMENT{a}','-'*50)
             comment_text =[]
             print('BÌNH LUẬN\n')
 
@@ -109,7 +99,6 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
                 name_elements = driver.find_element(By.CSS_SELECTOR, "div.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x78zum5.xdt5ytf.x1iyjqo2.x1al4vs7 div.html-div.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1gslohp")
                 # Lấy nội dung văn bản
                 name_elements1 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label^="Bình luận dưới"] div[style="text-align: start;"]')   
-                print('1:',len(name_elements1))
                 while True:           
                     first_len = len(name_elements1)
                     name_elements1 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label^="Bình luận dưới"] div[style="text-align: start;"]')                        
@@ -139,9 +128,6 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
 
                 name_elements2 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label^="Phản hồi bình luận"] div[style="text-align: start;"]')
                 name_elements3 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label*="đáp lại phản hồi"] div[style="text-align: start;"]')
-                print('1:',len(name_elements1))
-                print('2:',len(name_elements2))
-                print('3:',len(name_elements3))
                 # Tìm các phần tử có aria-label chứa một trong các từ khóa
                 name_elements = (
                     name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label^="Bình luận dưới"] div[style="text-align: start;"]') +
@@ -151,32 +137,21 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
                 print(len(name_elements))             
                 sleep(5)
 
-                    
-                
-
-
-
                 #__________________________________________LẤY BÌNH LUẬN____________________________________________
                             
-
-                [print(name.text,'-----------------') for name in name_elements]
                 comment_text = [name.text for name in name_elements]
                 sleep(1)    
                 # ________________CLOSE__________________
                 close_mother = driver.find_element(By.CSS_SELECTOR,'div')
                 close = close_mother.find_elements(By.CSS_SELECTOR,'div[aria-label="Đóng"]')
                 close[0].click()            
-                print('/-----------------------------------------------')
                 
             except:
                 print('Lỗi ko co binh luan')
-                print('/-----------------------------------------------')
 
                 
             # ------------------------------------------------------------------lIKE----------------------------------------------------------------------
-            print('LIKE','-'*50)
             like_text = []
-            print(' LIKE DETAIL:\n')
             buttons = div.find_elements(By.CSS_SELECTOR, "span[aria-label='Xem ai đã bày tỏ cảm xúc về tin này'] div[role='button']")
 
             # Lọc các phần tử có thuộc tính aria-label bắt đầu bằng "Thích"
@@ -193,16 +168,12 @@ def fanpageCrawl(request_url, num_of_post, driver, date_time):
                 input= '.x1i10hfl.xe8uvvx.xggy1nq.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x87ps6o.x1lku1pv.x1a2a7pz.xjyslct.xjbqb8w.x18o3ruo.x13fuv20.xu3j5b3.x1q0q8m5.x26u7qi.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.x1heor9g.x1ypdohk.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1n2onr6.x16tdsg8.x1hl2dhg.x1vjfegm.x3nfvp2.xrbpyxo.x1itg65n.x16dsc37'   
                 like = div.find_elements(By.CSS_SELECTOR,input)
                 for i in like:
-                    print(i.get_attribute("aria-label"),'\n' )
                     like_text.append(i.get_attribute("aria-label"))
-
             
             close_mother = driver.find_element(By.CSS_SELECTOR,'div') 
             try:
                 close = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'div[aria-label="Đóng"]')))
-                
                 close.click()
-                
             except:
                 pass
                 
@@ -231,19 +202,14 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
             if dem<idx:
                 dem+=1
                 continue #tránh thu thập dữ liệu bị trùng lặp ở mỗi vòng lặp 
-            print(f"{a}"*200)
-            print(div.text)
             
             driver.execute_script("arguments[0].scrollIntoView(true);", div)
 
-
             #-------------------------------------------------------------------TEXT----------------------------------------------------------------------
             #tìm text
-            print(f'BÀI VIẾT{a}','-'*50)
             text_content = ''
             try:
                 XemThem = div.find_elements(By.CSS_SELECTOR, 'div[class="x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1sur9pj xkrqix3 xzsf02u x1s688f"]')                          
-                [print(i.text) for i in XemThem ]
                 for i in XemThem:
                     if i.text =='Xem thêm':
                         i.click()
@@ -251,22 +217,18 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
                 print(f'Lỗi xảy ra: {e}')#--------------> SỬA
             try:
                 text = div.find_element(By.CSS_SELECTOR, 'div[data-ad-rendering-role="story_message"]')
-                print(a,'\n','text:\n',text.text,'\n' ) #--------------> SỬA
                 
             except:
                 try:
                     text = div.find_element(By.CSS_SELECTOR, 'div[class="x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x10l6tqk x17qophe x13vifvy xh8yej3"]')
-                    print(a,'\n','text:\n',text.text,'\n' )  
                 except:
                     try:
                         text = div.find_element(By.CSS_SELECTOR, 'div[class="xdj266r x11i5rnm xat24cr x1mh8g0r x1vvkbs x126k92a"]')
-                        print(a,'\n','text:\n',text.text,'\n' )  
                     except:
                         print('Không có tìm thầy text')  
             text_content = text.text
             
             #-------------------------------------------------------------------COMMENT AND SHARE----------------------------------------------------------------------
-            print('NUMBER OF COMMENT AND SHARE','-'*50)
             comment_num = '0'
             share_num = '0'
 
@@ -287,7 +249,6 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
                 print('k đếm được số share')
                 
             #------------------------------------------------------------------COMMENT----------------------------------------------------------------------
-            print(f'COMMENT{a}','-'*50)
             comment_text =[]
             print('BÌNH LUẬN\n')
 
@@ -300,7 +261,6 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
                 name_elements = driver.find_element(By.CSS_SELECTOR, "div.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x78zum5.xdt5ytf.x1iyjqo2.x1al4vs7 div.html-div.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1gslohp")
                 # Lấy nội dung văn bản
                 name_elements1 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label^="Bình luận dưới"] div[style="text-align: start;"]')   
-                print('1:',len(name_elements1))
                 while True:           
                     first_len = len(name_elements1)
                     name_elements1 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label^="Bình luận dưới"] div[style="text-align: start;"]')                        
@@ -316,7 +276,6 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
                     while True:
 
                         themphanhoi = driver.find_elements(By.CSS_SELECTOR,'div[class="x1i10hfl xjbqb8w xjqpnuy xa49m3k xqeqjp1 x2hbi6w x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xdl72j9 xe8uvvx xdj266r x11i5rnm xat24cr x2lwn1j xeuugli xexx8yu x18d9i69 xkhd6sd x1n2onr6 x16tdsg8 x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x3nfvp2 x87ps6o x1lku1pv x1a2a7pz x6s0dn4 xi81zsa x1q0g3np x1iyjqo2 xs83m0k xsyo7zv x1mnrxsn"]')
-                        print('><'*50,len(themphanhoi))
                         for i in themphanhoi:
                             i.click()
                             sleep(0.5)
@@ -330,9 +289,6 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
 
                 name_elements2 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label^="Phản hồi bình luận"] div[style="text-align: start;"]')
                 name_elements3 = name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label*="đáp lại phản hồi"] div[style="text-align: start;"]')
-                print('1:',len(name_elements1))
-                print('2:',len(name_elements2))
-                print('3:',len(name_elements3))
                 # Tìm các phần tử có aria-label chứa một trong các từ khóa
                 name_elements = (
                     name_elements.find_elements(By.CSS_SELECTOR, 'div[aria-label^="Bình luận dưới"] div[style="text-align: start;"]') +
@@ -348,26 +304,19 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
 
 
                 #__________________________________________LẤY BÌNH LUẬN____________________________________________
-
-                            
-                [print(name.text,'-----------------') for name in name_elements]
                 comment_text = [name.text for name in name_elements]
                 sleep(1)    
                 # ________________CLOSE__________________
                 close_mother = driver.find_element(By.CSS_SELECTOR,'div')
                 close = close_mother.find_elements(By.CSS_SELECTOR,'div[aria-hidden="false"] div[aria-label="Đóng"]')#--------------> SỬA
-                close[0].click()            
-                print('/-----------------------------------------------')
+                close[0].click()
                 
             except:
                 print('Lỗi ko co binh luan')
-                print('/-----------------------------------------------')
 
                 
             # ------------------------------------------------------------------lIKE----------------------------------------------------------------------
-            print('LIKE','-'*50)
             like_text = []
-            print(' LIKE DETAIL:\n')
             buttons = div.find_elements(By.CSS_SELECTOR, "span[aria-label='Xem ai đã bày tỏ cảm xúc về tin này'] div[role='button']")
 
             # Lọc các phần tử có thuộc tính aria-label bắt đầu bằng "Thích"
@@ -385,7 +334,6 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
                 input= '.x1i10hfl.xe8uvvx.xggy1nq.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x87ps6o.x1lku1pv.x1a2a7pz.xjyslct.xjbqb8w.x18o3ruo.x13fuv20.xu3j5b3.x1q0q8m5.x26u7qi.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.x1heor9g.x1ypdohk.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1n2onr6.x16tdsg8.x1hl2dhg.x1vjfegm.x3nfvp2.xrbpyxo.x1itg65n.x16dsc37'   
                 like = div.find_elements(By.CSS_SELECTOR,input)
                 for i in like:
-                    print(i.get_attribute("aria-label"),'\n' )
                     like_text.append(i.get_attribute("aria-label"))
             # Đợi cho đến khi phần tử có thể được click
             
