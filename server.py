@@ -9,16 +9,16 @@ from selenium.webdriver.chrome.options import Options
 import os
 from flask_cors import CORS
 from pymongo import MongoClient
-from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
 
 cors = CORS(app)
 
-PASSWORD_SECRET = os.getenv("PASSWORD_SECRET")
+PASSWORD_SECRET = os.environ("PASSWORD_SECRET")
 
-client = MongoClient('mongodb+srv://MLadmin:admin1021@machinelearning.so3qxxp.mongodb.net/')
+MONGO_URI = os.environ['MONGODB']
+client = MongoClient(MONGO_URI)
 db = client['KPW']
 
 resultCrawl = []
