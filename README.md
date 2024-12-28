@@ -17,6 +17,9 @@
 ### Bước 4: Thiết lập một website, ví dụ source code: https://www.yumyum.social/crawl.html, cần 2 function test() và sendrequest như script trong html này.
 ### Bước 5: Chạy thui :3
 ## Chạy trên local: (sẽ up lên trong tương lai gần, hiện tại tui sắp ngất rồi)
+### Bước 1:??
+### Bước 2:??
+### Bước 3:??
 - User có thể nhập loại group/fanpage, URL, số lượng bài đăng.
 - Website đang sử dụng để cào: https://www.yumyum.social/crawl.html
 ![pic1](https://github.com/user-attachments/assets/74eab2b8-b27c-4065-8621-c4ba549ea6dd)
