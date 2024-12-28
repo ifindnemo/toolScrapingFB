@@ -42,7 +42,7 @@
 - Sau khi cào sẽ lưu kết quả vào MongoDB và trả về kết quả trên Website:
 ![pic2](https://github.com/user-attachments/assets/e8e9cf8f-e5ac-48a9-8d27-828a25a863fd)
 
-
+# Mọi bug liên hệ discord nemodev, hoặc [Toàn Nguyễn](https://www.facebook.com/toannguyen.8640/).
 # Ghi chú thêm:
 ### Celery:
 - Celery là một hệ thống xử lý hàng đợi công việc phân tán (distributed task queue) được sử dụng để xử lý các tác vụ không đồng bộ (asynchronous tasks). Nó cho phép bạn chạy các tác vụ tốn thời gian (như gửi email, xử lý dữ liệu lớn, hoặc gọi API) ở chế độ nền (background), giúp ứng dụng chính không bị chậm hoặc gián đoạn.
