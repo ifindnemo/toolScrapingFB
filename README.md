@@ -4,7 +4,16 @@
 > Lớp học phần: (ELC3009_1)
 > 
 > Giáo viên: Nguyễn Thành Thủy
-
+> 
+## Sử dụng heroku
+### Bước 1: Tạo clone của github này https://github.com/ifindnemo/toolScrapingFB, kết nối với heroku.
+### Bước 2: Tạo 1 cluster trên MongoDB, tạo 1 database mới trong cluster đó (Xài cluster loại M0-free cũng ổn).
+### Bước 3: Cài đủ buildpack trên heroku, bao gồm:
+- buildpack python có sẵn
+- https://github.com/heroku/heroku-buildpack-chrome-for-testing
+#### Thiết lập các Config Vars bao gồm: MONGODB, PASSWORD_SECRET. Còn REDISCLOUD_URL sẽ tự tạo khi thêm add-on Redis Cloud vào app trên heroku.
+### Bước 4: Thiết lập một website, ví dụ source code: https://www.yumyum.social/crawl.html
+## Chạy trên local: (sẽ up lên trong tương lai gần, hiện tại tui sắp ngất rồi)
 - User có thể nhập loại group/fanpage, URL, số lượng bài đăng.
 - Website đang sử dụng để cào: https://www.yumyum.social/crawl.html
 ![pic1](https://github.com/user-attachments/assets/74eab2b8-b27c-4065-8621-c4ba549ea6dd)
