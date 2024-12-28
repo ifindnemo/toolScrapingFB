@@ -5,7 +5,7 @@
 > 
 > Giáo viên: Nguyễn Thành Thủy
 > 
-## Chạy trên heroku
+## Chạy trên heroku:
 ### Bước 1: Tạo clone của github này https://github.com/ifindnemo/toolScrapingFB, kết nối với heroku, bật auto deploy trên heroku để tự động deploy khi push file lên github.
 ### Bước 2: Tạo 1 cluster trên MongoDB, tạo 1 database mới trong cluster đó (Xài cluster loại M0-free cũng ổn).
 - Database access thêm một user với role *Read and write any database*. Network access thêm địa chỉ ip để có thể truy cập từ bất cứ đâu, hoặc ip cụ thể bạn muốn.
