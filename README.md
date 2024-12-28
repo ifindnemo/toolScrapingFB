@@ -5,7 +5,7 @@
 > 
 > Giáo viên: Nguyễn Thành Thủy
 > 
-## Sử dụng heroku
+## Chạy trên heroku
 ### Bước 1: Tạo clone của github này https://github.com/ifindnemo/toolScrapingFB, kết nối với heroku, bật auto deploy trên heroku để tự động deploy khi push file lên github.
 ### Bước 2: Tạo 1 cluster trên MongoDB, tạo 1 database mới trong cluster đó (Xài cluster loại M0-free cũng ổn).
 - Database access thêm một user với role *Read and write any database*. Network access thêm địa chỉ ip để có thể truy cập từ bất cứ đâu, hoặc ip cụ thể bạn muốn.
@@ -20,7 +20,7 @@
 ### Bước 1:??
 ### Bước 2:??
 ### Bước 3:??
-#
+# Lưu ý: (Quan trọng!!!)
 - User có thể nhập loại group/fanpage, URL, số lượng bài đăng.
 - Website đang sử dụng để cào: https://www.yumyum.social/crawl.html
 ![pic1](https://github.com/user-attachments/assets/74eab2b8-b27c-4065-8621-c4ba549ea6dd)
@@ -36,7 +36,7 @@
 - Vì sử dụng heroku và dyno Standard-2X nên sẽ tốn tiền, 1 dyno S-2X là 0.069$/1h. Hiện tại code cũng sử dụng add-on Redis Cloud trên heroku
 - Sử dụng web dyno chạy server.py để xử lý các request https từ Website. Còn worker dyno với celery để chạy celeryapp.py, xử lý không đồng bộ để cào dữ liệu (chạy trên background, vì việc cào sẽ hơn 30s. Heroku giới hạn thời gian phản hồi tối đa là 30s, không tăng thêm được.
 - Việc sư dụng celery sẽ giúp tránh việc "Connection timed out" khi thời gian phản hồi quá 30s.
-
+- Nếu chạy local thì không cần sử dụng celery + redis.
 - Sau khi cào sẽ lưu kết quả vào MongoDB và trả về kết quả trên Website:
 ![pic2](https://github.com/user-attachments/assets/e8e9cf8f-e5ac-48a9-8d27-828a25a863fd)
 
