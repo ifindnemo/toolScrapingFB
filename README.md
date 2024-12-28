@@ -19,9 +19,8 @@
 ### Bước 5: Host website và chạy thui :3
 #
 ## Chạy trên local: (sẽ up lên trong tương lai gần, hiện tại tui sắp ngất rồi)
-### Bước 1:??
-### Bước 2:??
-### Bước 3:??
+### Hướng dẫn chi tiết tham khảo bên repo này của mình nha: [tool Scraping FB local](https://github.com/ifindnemo/toolScrapingFB-local)
+
 # Lưu ý: (Quan trọng!!!)
 - User có thể nhập loại group/fanpage, URL, số lượng bài đăng.
 - Website đang sử dụng để cào: https://www.yumyum.social/crawl.html
