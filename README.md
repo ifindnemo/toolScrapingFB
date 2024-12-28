@@ -18,8 +18,9 @@
 - Source code này cần thay địa chỉ localhost thành địa chỉ app heroku (địa chỉ app heroku xem trong các build của Activity).
 ### Bước 5: Host website và chạy thui :3
 #
-## Chạy trên local: (sẽ up lên trong tương lai gần, hiện tại tui sắp ngất rồi)
-### Hướng dẫn chi tiết tham khảo bên repo này của mình nha: [tool Scraping FB local](https://github.com/ifindnemo/toolScrapingFB-local)
+## Chạy trên local:
+### Website chạy local: [demo-yumyum-scraping-tool](https://github.com/ifindnemo/demo-yumyum-scraping-tool)
+### Hướng dẫn chi tiết chạy server local tham khảo bên repo này của mình nha: [tool Scraping FB local](https://github.com/ifindnemo/toolScrapingFB-local)
 
 # Lưu ý: (Quan trọng!!!)
 - User có thể nhập loại group/fanpage, URL, số lượng bài đăng.
