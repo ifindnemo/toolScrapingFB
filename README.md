@@ -35,9 +35,11 @@
 > Thay đường dẫn thành localhost nếu chạy trên local.
 > 
 > Thay các biến trong server.py và celeryapp.py ngay trong code, còn hiện tại file code đang lấy các biến từ Enviroment variables của Heroku.
+>
+> Thực ra nếu chạy local thì không cần sử dụng celery + redis.
 - Vì sử dụng heroku và dyno Standard-2X nên sẽ tốn tiền, 1 dyno S-2X là 0.069$/1h. Hiện tại code cũng sử dụng add-on Redis Cloud trên heroku
 - Sử dụng web dyno chạy server.py để xử lý các request https từ Website. Còn worker dyno với celery để chạy celeryapp.py, xử lý không đồng bộ để cào dữ liệu (chạy trên background, vì việc cào sẽ hơn 30s. Heroku giới hạn thời gian phản hồi tối đa là 30s, không tăng thêm được.
-- Việc sư dụng celery sẽ giúp tránh việc "Connection timed out" khi thời gian phản hồi quá 30s.
+- Việc sử dụng celery sẽ giúp tránh việc "Connection timed out" khi thời gian phản hồi quá 30s.
 - Nếu chạy local thì không cần sử dụng celery + redis.
 - Sau khi cào sẽ lưu kết quả vào MongoDB và trả về kết quả trên Website:
 ![pic2](https://github.com/user-attachments/assets/e8e9cf8f-e5ac-48a9-8d27-828a25a863fd)
