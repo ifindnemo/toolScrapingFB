@@ -20,9 +20,10 @@ celeryapp.config['CELERY_RESULT_BACKEND'] = redis_url  # Đặt backend là Redi
 celery = Celery(celeryapp.name, broker=celeryapp.config['CELERY_BROKER_URL'])
 celery.conf.update(celeryapp.config)
 
-MONGO_URI = os.environ['MONGODB']
-client = MongoClient(MONGO_URI)
-db = client['KPW']
+def get_mongo_client():
+    MONGO_URI = os.environ['MONGODB']
+    return MongoClient(MONGO_URI)
+
 resultCrawl = []
 
 def fanpageCrawl(request_url, num_of_post, driver, date_time):
@@ -358,6 +359,9 @@ def groupCrawl(request_url, num_of_post, driver, date_time):
 # Tạo tác vụ bất đồng bộ
 @celery.task
 def perform_crawl(request_url, num_of_post, typeCrawl, date_time):
+    client = get_mongo_client()
+    db = client['KPW']
+    
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-gpu")
