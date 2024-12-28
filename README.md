@@ -11,6 +11,7 @@
 - Database access thêm một user với role *Read and write any database*. Network access thêm địa chỉ ip để có thể truy cập từ bất cứ đâu, hoặc ip cụ thể bạn muốn.
 ### Bước 3: Cài đủ buildpack trên heroku, bao gồm:
 > buildpack python có sẵn
+> 
 > https://github.com/heroku/heroku-buildpack-chrome-for-testing
 - Thiết lập các Config Vars bao gồm: MONGODB, PASSWORD_SECRET. Còn REDISCLOUD_URL sẽ tự tạo khi thêm add-on Redis Cloud vào app trên heroku.
 - Về web dyno và worker dyno thì nên dùng Standard-2X (8 CPU, 1GB RAM)
