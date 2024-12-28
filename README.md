@@ -20,6 +20,7 @@
 ### Bước 1:??
 ### Bước 2:??
 ### Bước 3:??
+#
 - User có thể nhập loại group/fanpage, URL, số lượng bài đăng.
 - Website đang sử dụng để cào: https://www.yumyum.social/crawl.html
 ![pic1](https://github.com/user-attachments/assets/74eab2b8-b27c-4065-8621-c4ba549ea6dd)
