@@ -10,13 +10,14 @@
 ### Bước 2: Tạo 1 cluster trên MongoDB, tạo 1 database mới trong cluster đó (Xài cluster loại M0-free cũng ổn).
 - Database access thêm một user với role *Read and write any database*. Network access thêm địa chỉ ip để có thể truy cập từ bất cứ đâu, hoặc ip cụ thể bạn muốn.
 ### Bước 3: Cài đủ buildpack trên heroku, bao gồm:
-- buildpack python có sẵn
-- https://github.com/heroku/heroku-buildpack-chrome-for-testing
-#### Thiết lập các Config Vars bao gồm: MONGODB, PASSWORD_SECRET. Còn REDISCLOUD_URL sẽ tự tạo khi thêm add-on Redis Cloud vào app trên heroku.
-#### Về web dyno và worker dyno thì nên dùng Standard-2X (8 CPU, 1GB RAM)
+> buildpack python có sẵn
+> https://github.com/heroku/heroku-buildpack-chrome-for-testing
+- Thiết lập các Config Vars bao gồm: MONGODB, PASSWORD_SECRET. Còn REDISCLOUD_URL sẽ tự tạo khi thêm add-on Redis Cloud vào app trên heroku.
+- Về web dyno và worker dyno thì nên dùng Standard-2X (8 CPU, 1GB RAM)
 ### Bước 4: Thiết lập một website, ví dụ source code: [demo-yumyum-scraping-tool](https://github.com/ifindnemo/demo-yumyum-scraping-tool), cần 2 function test() và sendrequest như script trong html này.
 - Source code này cần thay địa chỉ localhost thành địa chỉ app heroku (địa chỉ app heroku xem trong các build của Activity).
 ### Bước 5: Host website và chạy thui :3
+#
 ## Chạy trên local: (sẽ up lên trong tương lai gần, hiện tại tui sắp ngất rồi)
 ### Bước 1:??
 ### Bước 2:??
