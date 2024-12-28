@@ -14,7 +14,7 @@
 > https://github.com/heroku/heroku-buildpack-chrome-for-testing
 - Thiết lập các Config Vars bao gồm: MONGODB, PASSWORD_SECRET. Còn REDISCLOUD_URL sẽ tự tạo khi thêm add-on Redis Cloud vào app trên heroku.
 - Về web dyno và worker dyno thì nên dùng Standard-2X (8 CPU, 1GB RAM)
-### Bước 4: Thiết lập một website, ví dụ source code: [demo-yumyum-scraping-tool](https://github.com/ifindnemo/demo-yumyum-scraping-tool), cần 2 function test() và sendrequest như script trong html này.
+### Bước 4: Thiết lập một website, ví dụ source code: [demo-yumyum-scraping-tool](https://github.com/ifindnemo/demo-yumyum-scraping-tool), cần 2 function test() và sendrequest() như script trong html này.
 - Source code này cần thay địa chỉ localhost thành địa chỉ app heroku (địa chỉ app heroku xem trong các build của Activity).
 ### Bước 5: Host website và chạy thui :3
 #
