@@ -6,13 +6,16 @@
 > Giáo viên: Nguyễn Thành Thủy
 > 
 ## Sử dụng heroku
-### Bước 1: Tạo clone của github này https://github.com/ifindnemo/toolScrapingFB, kết nối với heroku.
+### Bước 1: Tạo clone của github này https://github.com/ifindnemo/toolScrapingFB, kết nối với heroku, bật auto deploy trên heroku để tự động deploy khi push file lên github.
 ### Bước 2: Tạo 1 cluster trên MongoDB, tạo 1 database mới trong cluster đó (Xài cluster loại M0-free cũng ổn).
+- Database access thêm một user với role *Read and write any database*. Network access thêm địa chỉ ip để có thể truy cập từ bất cứ đâu, hoặc ip cụ thể bạn muốn.
 ### Bước 3: Cài đủ buildpack trên heroku, bao gồm:
 - buildpack python có sẵn
 - https://github.com/heroku/heroku-buildpack-chrome-for-testing
 #### Thiết lập các Config Vars bao gồm: MONGODB, PASSWORD_SECRET. Còn REDISCLOUD_URL sẽ tự tạo khi thêm add-on Redis Cloud vào app trên heroku.
-### Bước 4: Thiết lập một website, ví dụ source code: https://www.yumyum.social/crawl.html
+#### Về web dyno và worker dyno thì nên dùng Standard-2X (8 CPU, 1GB RAM)
+### Bước 4: Thiết lập một website, ví dụ source code: https://www.yumyum.social/crawl.html, cần 2 function test() và sendrequest như script trong html này.
+### Bước 5: Chạy thui :3
 ## Chạy trên local: (sẽ up lên trong tương lai gần, hiện tại tui sắp ngất rồi)
 - User có thể nhập loại group/fanpage, URL, số lượng bài đăng.
 - Website đang sử dụng để cào: https://www.yumyum.social/crawl.html
