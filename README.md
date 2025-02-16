@@ -23,7 +23,7 @@
 ### Website chạy local: [demo-yumyum-scraping-tool](https://github.com/ifindnemo/demo-yumyum-scraping-tool)
 ### Hướng dẫn chi tiết chạy server local tham khảo bên repo này của mình nha: [tool Scraping FB local](https://github.com/ifindnemo/toolScrapingFB-local)
 
-# Lưu ý: (Quan trọng!!!)
+# Lưu ý: (Quan trọng!!!!)
 - User có thể nhập loại group/fanpage, URL, số lượng bài đăng.
 - Website đang sử dụng để cào: https://www.yumyum.social/crawl.html
 ![pic1](https://github.com/user-attachments/assets/74eab2b8-b27c-4065-8621-c4ba549ea6dd)
