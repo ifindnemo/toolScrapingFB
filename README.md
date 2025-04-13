@@ -3,7 +3,7 @@
 > 
 > Lớp học phần: (ELC3009_1)
 > 
-> Giáo viên: Nguyễn Thành Thủy
+> Giáo viên: Nguyễn Thành Thủy 
 > 
 ## Chạy trên heroku:
 ### Bước 1: Tạo clone của github này https://github.com/ifindnemo/toolScrapingFB, kết nối với heroku, bật auto deploy trên heroku để tự động deploy khi push file lên github.
